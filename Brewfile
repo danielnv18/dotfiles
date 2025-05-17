@@ -1,18 +1,17 @@
 tap "homebrew/core"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 
 # CLI
 brew "git"
 brew "zsh"
-brew "tmux"
-brew "node"
-brew "python@3.13"
+brew "zsh-syntax-highlighting"
+brew "zsh-autosuggestions"
 
 # GUI
 cask "ghostty"
 cask "visual-studio-code"
 cask "google-chrome"
 
-# QuickLook plugins, fonts, etc.
-brew "the_silver_searcher"
-cask "font-fira-code"
+# Fonts
+cask "font-jetbrains-mono"
