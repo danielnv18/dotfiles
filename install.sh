@@ -29,6 +29,9 @@ echo "Installing latest LTS Node.js…"
 nvm install --lts --latest-npm
 nvm alias default 'lts/*'
 
+echo "Creating ~/dev directory…"
+mkdir -p "$HOME/dev"
+
 # 5. Link your dotfiles
 echo "Linking dotfiles…"
 # … your existing symlink loop …

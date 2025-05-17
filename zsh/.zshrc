@@ -27,9 +27,6 @@ plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
-  node
-  docker
-  # Add others you use frequently: aws, terraform, kubectl, etc.
 )
 
 # ┌───────────────────────────────────────────────────────────┐
@@ -71,24 +68,14 @@ FPATH="$HOME/.zsh/completions:$FPATH"
 # Composer global bin
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-# Lando CLI
-export PATH="$HOME/.lando/bin:$PATH"
-
-# LM Studio CLI
-export PATH="$PATH:$HOME/.lmstudio/bin"
-
 # Bun & Deno
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
-[ -s "$HOME/.deno/env" ] && source "$HOME/.deno/env"
 
 # Herd PHP
 export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/84/"
 export PATH="$HOME/Library/Application Support/Herd/bin:$PATH"
-
-# Terraform completion
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # ┌───────────────────────────────────────────────────────────┐
 # │                    6. Aliases                             │
