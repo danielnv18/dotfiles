@@ -3,6 +3,20 @@ set -e
 
 REPO_DIR="$HOME/dotfiles"
 
+# 0. Install Xcode Command Line Tools (required)
+if ! xcode-select -p &>/dev/null; then
+  echo "Installing Xcode Command Line Tools…"
+  xcode-select --install
+
+  # wait until the install is complete
+  until xcode-select -p &>/dev/null; do
+    sleep 5
+  done
+  echo "✅ Xcode CLI Tools installed."
+else
+  echo "Xcode CLI Tools already installed."
+fi
+
 # 1. Install Homebrew if missing…
 if ! command -v brew >/dev/null; then
   echo "Installing Homebrew…"
@@ -13,6 +27,15 @@ fi
 echo "Tapping & installing Homebrew packages…"
 brew tap homebrew/bundle
 brew bundle --file="$REPO_DIR/Brewfile"
+
+# 3. Install Oh My Zsh if it’s not already there
+ZSH="$HOME/.oh-my-zsh"
+if [ ! -d "$ZSH" ]; then
+  echo "Installing Oh My Zsh…"
+  # KEEP_ZSHRC=yes so it doesn’t overwrite your existing ~/.zshrc
+  RUNZSH=no KEEP_ZSHRC=yes \
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # 3. Install nvm via official installer if not present
 if [ ! -d "$HOME/.nvm" ]; then

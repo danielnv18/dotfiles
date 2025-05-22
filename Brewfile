@@ -5,6 +5,7 @@ tap "homebrew/cask-fonts"
 # CLI
 brew "git"
 brew "bun"
+brew "pnpm"
 brew "orbstack"
 brew "docker"
 brew "zsh"
@@ -24,7 +25,7 @@ cask "font-hack-nerd-font"
 # Productivity & Utilities
 cask "appcleaner"
 cask "1password"
-cask "alfred"
+cask "raycast"
 
 # Notes & Music
 cask "obsidian"
